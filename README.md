@@ -14,3 +14,5 @@ KeepAPP is an android app that help users to keep up with their workouts by orga
 * tracking activities such as cycling and running with GPS
 ### Optional Features
 * using sensor to determine activity
+
+*KeepAPP Workouts is a part of university course examination and therefore does not allow third party contributions.*
