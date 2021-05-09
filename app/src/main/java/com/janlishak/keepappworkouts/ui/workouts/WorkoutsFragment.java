@@ -18,10 +18,8 @@ public class WorkoutsFragment extends Fragment {
 
     private WorkoutsViewModel workoutsViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        workoutsViewModel =
-                new ViewModelProvider(this).get(WorkoutsViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        workoutsViewModel = new ViewModelProvider(this).get(WorkoutsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_workouts, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
         workoutsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

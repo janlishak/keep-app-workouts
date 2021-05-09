@@ -11,25 +11,48 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.janlishak.keepappworkouts.ExercisesAdapter;
 import com.janlishak.keepappworkouts.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExercisesFragment extends Fragment {
 
     private ExercisesViewModel exercisesViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        exercisesViewModel =
-                new ViewModelProvider(this).get(ExercisesViewModel.class);
+    private RecyclerView dataList;
+    List<String> titles = new ArrayList<>();
+    List<Integer> images = new ArrayList<>();
+    ExercisesAdapter  exercisesAdapter;
+
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        exercisesViewModel = new ViewModelProvider(this).get(ExercisesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_exercises, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        exercisesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        dataList = root.findViewById(R.id.dataList);
+
+
+
+        titles.add("First Item");
+        titles.add("Second Item");
+        titles.add("Third Item");
+        titles.add("Fourth Item");
+
+        images.add(R.drawable.wk1);
+        images.add(R.drawable.wk1);
+        images.add(R.drawable.wk1);
+        images.add(R.drawable.wk1);
+
+        exercisesAdapter = new ExercisesAdapter(getContext(),titles,images);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
+        dataList.setLayoutManager(gridLayoutManager);
+        dataList.setAdapter(exercisesAdapter);//set adapter to recyclerview
+
         return root;
     }
 }
