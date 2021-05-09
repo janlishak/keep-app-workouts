@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KeepAppWorkouts" >
         <activity
-            android:name=".ui.exercises.NotificationsActivity"
+            android:name=".ui.NotificationsActivity"
             android:label="@string/title_activity_notifications"
             android:theme="@style/Theme.KeepAppWorkouts.NoActionBar" >
         </activity>

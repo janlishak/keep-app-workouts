@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.SettingsActivity;
-import com.janlishak.keepappworkouts.ui.exercises.NotificationsActivity;
+import com.janlishak.keepappworkouts.ui.NotificationsActivity;
 
 public class ProfileFragment extends Fragment {
 
