@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.ui.dashboard;
+package com.janlishak.keepappworkouts.ui.workouts;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.janlishak.keepappworkouts.R;
 
-public class DashboardFragment extends Fragment {
+public class WorkoutsFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private WorkoutsViewModel workoutsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        workoutsViewModel =
+                new ViewModelProvider(this).get(WorkoutsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_workouts, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        workoutsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

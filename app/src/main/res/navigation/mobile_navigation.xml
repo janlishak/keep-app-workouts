@@ -7,19 +7,26 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.janlishak.keepappworkouts.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.janlishak.keepappworkouts.ui.plans.PlansFragment"
+        android:label="@string/title_plans"
+        tools:layout="@layout/fragment_plans" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.janlishak.keepappworkouts.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.janlishak.keepappworkouts.ui.workouts.WorkoutsFragment"
+        android:label="@string/title_workouts"
+        tools:layout="@layout/fragment_workouts" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.janlishak.keepappworkouts.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.janlishak.keepappworkouts.ui.exercises.ExercisesFragment"
+        android:label="@string/title_exercises"
+        tools:layout="@layout/fragment_exercises" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.janlishak.keepappworkouts.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>
