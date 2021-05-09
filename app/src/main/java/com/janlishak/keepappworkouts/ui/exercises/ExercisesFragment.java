@@ -2,6 +2,8 @@ package com.janlishak.keepappworkouts.ui.exercises;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,6 +34,7 @@ public class ExercisesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         exercisesViewModel = new ViewModelProvider(this).get(ExercisesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_exercises, container, false);
+        setHasOptionsMenu(true);
 
         dataList = root.findViewById(R.id.dataList);
 
@@ -54,5 +57,11 @@ public class ExercisesFragment extends Fragment {
         dataList.setAdapter(exercisesAdapter);//set adapter to recyclerview
 
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.exercises_toolbar, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }
