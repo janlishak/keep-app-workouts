@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_dashboard">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -40,5 +40,17 @@
         android:name="com.janlishak.keepappworkouts.ui.exercise_details.ExerciseDetailsFragment"
         android:label=""
         tools:layout="@layout/fragment_exercise_details" />
+
+    <fragment
+        android:id="@+id/navigation_exercise_creation"
+        android:name="com.janlishak.keepappworkouts.ui.exercise_creation.ExerciseCreationFragment"
+        android:label=""
+        tools:layout="@layout/fragment_exercise_creation" />
+
+    <fragment
+        android:id="@+id/navigation_session_details"
+        android:name="com.janlishak.keepappworkouts.ui.session_details.SessionDetailsFragment"
+        android:label="Exercises"
+        tools:layout="@layout/fragment_session_details" />
 
 </navigation>

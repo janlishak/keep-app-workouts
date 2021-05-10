@@ -57,8 +57,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.Viewholder> {
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            courseIV = itemView.findViewById(R.id.idIVCourseImage);
-            courseNameTV = itemView.findViewById(R.id.idTVCourseName);
+            courseIV = itemView.findViewById(R.id.plan_card_image_view);
+            courseNameTV = itemView.findViewById(R.id.plan_card_description_text_view);
             courseRatingTV = itemView.findViewById(R.id.idTVCourseRating);
         }
     }

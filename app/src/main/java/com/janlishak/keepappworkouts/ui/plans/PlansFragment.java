@@ -25,13 +25,15 @@ public class PlansFragment extends Fragment {
     private ArrayList<Plan> planArrayList;
 
     @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.plans_toolbar, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         plansViewModel = new ViewModelProvider(this).get(PlansViewModel.class);
         View root = inflater.inflate(R.layout.fragment_plans, container, false);
+        setHasOptionsMenu(true);
 
         courseRV = root.findViewById(R.id.idRVCourse);
 

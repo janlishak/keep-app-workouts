@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 switch (destination.getId()){
                     case R.id.navigation_exercise_browser:
                     case R.id.navigation_exercise_details:
+                    case R.id.navigation_exercise_creation:
+                    case R.id.navigation_session_details:
                         toolbar.setVisibility(View.VISIBLE);
                         navView.setVisibility(View.GONE);
                         break;

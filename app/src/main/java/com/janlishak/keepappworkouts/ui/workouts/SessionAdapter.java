@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
@@ -48,7 +49,12 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
             super(itemView);
             sessionName = itemView.findViewById(R.id.textview_session_name);
 
-            itemView.setOnClickListener(v -> Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Navigation.findNavController(v).navigate(R.id.navigation_session_details);
+                }
+            });
         }
     }
 }

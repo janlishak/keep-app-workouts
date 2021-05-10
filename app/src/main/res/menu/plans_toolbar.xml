@@ -3,11 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@drawable/ic_baseline_delete_24"
-        android:title="Delete"
-        app:showAsAction="always" />
-    <item
+        android:id="@+id/action_create_new_plan"
         android:icon="@drawable/ic_baseline_add_24"
-        android:title="Add"
+        android:title="Create"
         app:showAsAction="always" />
 </menu>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/detail_exercise_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Normal Push-Up"
+            android:padding="16dp"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/detail_exercise_description_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Praesent molestie nunc vel ex ullamcorper, nec pellentesque sem condimentum. Curabitur convallis risus nec justo ornare, condimentum finibus leo dignissim. Vestibulum mattis nunc eu dolor euismod dapibus. Donec eu posuere tortor, id interdum mi."
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
