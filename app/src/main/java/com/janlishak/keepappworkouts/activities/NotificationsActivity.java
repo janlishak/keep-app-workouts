@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.ui;
+package com.janlishak.keepappworkouts.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.janlishak.keepappworkouts.MainActivity;
 import com.janlishak.keepappworkouts.R;
 
 public class NotificationsActivity extends AppCompatActivity {

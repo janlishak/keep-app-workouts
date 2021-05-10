@@ -1,12 +1,12 @@
-package com.janlishak.keepappworkouts;
+package com.janlishak.keepappworkouts.model;
 
-public class PlanModel {
+public class Plan {
     private String course_name;
     private int course_rating;
     private int course_image;
 
     // Constructor
-    public PlanModel(String course_name, int course_rating, int course_image) {
+    public Plan(String course_name, int course_rating, int course_image) {
         this.course_name = course_name;
         this.course_rating = course_rating;
         this.course_image = course_image;

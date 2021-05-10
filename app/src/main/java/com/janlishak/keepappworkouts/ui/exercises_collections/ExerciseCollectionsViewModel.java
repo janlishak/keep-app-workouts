@@ -1,14 +1,14 @@
-package com.janlishak.keepappworkouts.ui.exercises;
+package com.janlishak.keepappworkouts.ui.exercises_collections;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ExercisesViewModel extends ViewModel {
+public class ExerciseCollectionsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ExercisesViewModel() {
+    public ExerciseCollectionsViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }

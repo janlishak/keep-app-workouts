@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.ui.exercises;
+package com.janlishak.keepappworkouts.ui.exercises_collections;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,34 +6,30 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.janlishak.keepappworkouts.ExercisesAdapter;
 import com.janlishak.keepappworkouts.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExercisesFragment extends Fragment {
+public class ExerciseCollectionsFragment extends Fragment {
 
-    private ExercisesViewModel exercisesViewModel;
+    private ExerciseCollectionsViewModel exerciseCollectionsViewModel;
 
     private RecyclerView dataList;
     List<String> titles = new ArrayList<>();
     List<Integer> images = new ArrayList<>();
-    ExercisesAdapter  exercisesAdapter;
+    ExercisesCollectionAdapter exercisesCollectionAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        exercisesViewModel = new ViewModelProvider(this).get(ExercisesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_exercises, container, false);
+        exerciseCollectionsViewModel = new ViewModelProvider(this).get(ExerciseCollectionsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_exercise_collections, container, false);
         setHasOptionsMenu(true);
 
         dataList = root.findViewById(R.id.dataList);
@@ -50,11 +46,11 @@ public class ExercisesFragment extends Fragment {
         images.add(R.drawable.wk1);
         images.add(R.drawable.wk1);
 
-        exercisesAdapter = new ExercisesAdapter(getContext(),titles,images);
+        exercisesCollectionAdapter = new ExercisesCollectionAdapter(getContext(),titles,images);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
         dataList.setLayoutManager(gridLayoutManager);
-        dataList.setAdapter(exercisesAdapter);//set adapter to recyclerview
+        dataList.setAdapter(exercisesCollectionAdapter);//set adapter to recyclerview
 
         return root;
     }

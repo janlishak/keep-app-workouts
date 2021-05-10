@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts;
+package com.janlishak.keepappworkouts.ui.exercises_collections;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,30 +6,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.janlishak.keepappworkouts.R;
 
 import java.util.List;
 
-public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder> {
-
+public class ExercisesCollectionAdapter extends RecyclerView.Adapter<ExercisesCollectionAdapter.ViewHolder> {
     List<String> titles;
     List<Integer> images;
-    LayoutInflater inflater;
 
-    public ExercisesAdapter(Context ctx, List<String> titles, List<Integer> images){
+    public ExercisesCollectionAdapter(Context ctx, List<String> titles, List<Integer> images){
         this.titles = titles;
         this.images = images;
-        this.inflater = LayoutInflater.from(ctx);
     }
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.exercise_card,parent,false);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.exercise_collection_card,parent,false);
         return new ViewHolder(view);
     }
 
@@ -56,7 +56,8 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Clicked -> " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    // TODO: 5/10/2021 https://developer.android.com/guide/navigation/navigation-pass-data
+                    Navigation.findNavController(v).navigate(R.id.navigation_exercise_browser);
                 }
             });
         }

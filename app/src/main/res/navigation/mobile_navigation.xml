@@ -19,14 +19,26 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.janlishak.keepappworkouts.ui.exercises.ExercisesFragment"
+        android:name="com.janlishak.keepappworkouts.ui.exercises_collections.ExerciseCollectionsFragment"
         android:label="@string/title_exercises"
-        tools:layout="@layout/fragment_exercises" />
+        tools:layout="@layout/fragment_exercise_collections" />
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.janlishak.keepappworkouts.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_exercise_browser"
+        android:name="com.janlishak.keepappworkouts.ui.exercise_browser.ExercisesBrowserFragment"
+        android:label=""
+        tools:layout="@layout/fragment_exercise_browser" />
+
+    <fragment
+        android:id="@+id/navigation_exercise_details"
+        android:name="com.janlishak.keepappworkouts.ui.exercise_details.ExerciseDetailsFragment"
+        android:label=""
+        tools:layout="@layout/fragment_exercise_details" />
 
 </navigation>

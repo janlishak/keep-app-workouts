@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts;
+package com.janlishak.keepappworkouts.ui.plans;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,31 +8,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.janlishak.keepappworkouts.model.Plan;
+import com.janlishak.keepappworkouts.R;
+
 import java.util.ArrayList;
 
 public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.Viewholder> {
 
     private Context context;
-    private ArrayList<PlanModel> PlanModelArrayList;
+    private ArrayList<Plan> planArrayList;
 
     // Constructor
-    public PlanAdapter(Context context, ArrayList<PlanModel> PlanModelArrayList) {
+    public PlanAdapter(Context context, ArrayList<Plan> planArrayList) {
         this.context = context;
-        this.PlanModelArrayList = PlanModelArrayList;
+        this.planArrayList = planArrayList;
     }
 
     @NonNull
     @Override
     public PlanAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.plan_card_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.plan_card, parent, false);
         return new Viewholder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PlanAdapter.Viewholder holder, int position) {
         // to set data to textview and imageview of each card layout
-        PlanModel model = PlanModelArrayList.get(position);
+        Plan model = planArrayList.get(position);
         holder.courseNameTV.setText(model.getCourse_name());
         holder.courseRatingTV.setText("" + model.getCourse_rating());
         holder.courseIV.setImageResource(model.getCourse_image());
@@ -42,7 +46,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.Viewholder> {
     public int getItemCount() {
         // this method is used for showing number
         // of card items in recycler view.
-        return PlanModelArrayList.size();
+        return planArrayList.size();
     }
 
     // View holder class for initializing of
