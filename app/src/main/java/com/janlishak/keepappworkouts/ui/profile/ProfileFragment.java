@@ -8,32 +8,58 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.firebase.ui.auth.AuthUI;
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.activities.SettingsActivity;
 import com.janlishak.keepappworkouts.activities.NotificationsActivity;
+import com.janlishak.keepappworkouts.authentication_activity.AuthenticationActivity;
 
-public class ProfileFragment extends Fragment {
+import org.w3c.dom.Text;
 
+public class ProfileFragment extends Fragment implements View.OnClickListener{
+    private View root;
     private ProfileViewModel profileViewModel;
+    private Button logOutButton;
+    private ProfileViewModel viewModel;
+    private TextView displayNameTextView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        root = inflater.inflate(R.layout.fragment_profile, container, false);
         setHasOptionsMenu(true);
+        viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
+        displayNameTextView = root.findViewById(R.id.user_name_textview);
+        checkIfSignedIn();
         return root;
+    }
 
+    private void checkIfSignedIn() {
+        viewModel.getCurrentUser().observe(getViewLifecycleOwner(), user -> {
+            if (user != null) {
+                displayNameTextView.setText(user.getDisplayName());
+            } else{
+                startActivity(new Intent(getActivity(), AuthenticationActivity.class));
+                getActivity().finish();
+            }
+        });
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.profile_toolbar, menu);
         super.onCreateOptionsMenu(menu, inflater);
+        logOutButton = root.findViewById(R.id.log_out_button);
+        logOutButton.setOnClickListener(this);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -58,7 +84,15 @@ public class ProfileFragment extends Fragment {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
+        }
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.log_out_button:
+                AuthUI.getInstance().signOut(getContext());
+                break;
         }
     }
 }

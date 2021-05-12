@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "622854966404",
+    "project_id": "keep-app-workouts",
+    "storage_bucket": "keep-app-workouts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622854966404:android:9bb907cb1cf99bee1046d1",
+        "android_client_info": {
+          "package_name": "com.janlishak.keepappworkouts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622854966404-temvh1710slgd0718gcfbgmaeu363am4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.janlishak.keepappworkouts",
+            "certificate_hash": "d593a3f57cc89ff39f177cd05bea68b2a30cddb9"
+          }
+        },
+        {
+          "client_id": "622854966404-q003hp967b8r3es99hqf7u72q6cv7j2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbgsb65g4RpG8LJ3U9m3cvgyFifN7qFMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622854966404-q003hp967b8r3es99hqf7u72q6cv7j2v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

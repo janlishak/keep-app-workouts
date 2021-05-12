@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.janlishak.keepappworkouts.R;
+import com.janlishak.keepappworkouts.ui.main_activity.MainActivity;
 
 public class NotificationsActivity extends AppCompatActivity {
 
