@@ -69,17 +69,17 @@ public class ExercisesBrowserFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.exercise_browser_toolbar, menu);
+        inflater.inflate(R.menu.delete_add_toolbar, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_add_exercise:
+            case R.id.action_add:
                 Navigation.findNavController(root).navigate(R.id.navigation_exercise_creation);
                 return true;
-            case R.id.action_delete_exercise:
+            case R.id.action_delete:
                 viewModel.toggleDeleteMode();
                 return true;
             default:

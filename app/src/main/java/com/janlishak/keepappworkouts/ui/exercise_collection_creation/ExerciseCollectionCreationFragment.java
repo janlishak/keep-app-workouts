@@ -1,10 +1,7 @@
-package com.janlishak.keepappworkouts.ui.exercise_creation;
+package com.janlishak.keepappworkouts.ui.exercise_collection_creation;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,19 +18,17 @@ import androidx.navigation.Navigation;
 
 import com.janlishak.keepappworkouts.R;
 
-public class ExerciseCreationFragment extends Fragment {
+public class ExerciseCollectionCreationFragment extends Fragment {
     private View root;
-    private ExerciseCreationViewModel exerciseCreationViewModel;
+    private ExerciseCollectionCreationViewModel exerciseCollectionCreationViewModel;
     private EditText name;
-    private EditText description;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        exerciseCreationViewModel = new ViewModelProvider(this).get(ExerciseCreationViewModel.class);
-        root = inflater.inflate(R.layout.fragment_exercise_creation, container, false);
+        exerciseCollectionCreationViewModel = new ViewModelProvider(this).get(ExerciseCollectionCreationViewModel.class);
+        root = inflater.inflate(R.layout.fragment_exercise_collection_creation, container, false);
         setHasOptionsMenu(true);
 
-        name = root.findViewById(R.id.exercise_name_edit_text);
-        description = root.findViewById(R.id.exercise_description_edit_text);
+        name = root.findViewById(R.id.exercise_collection_name_edit_text);
         return root;
     }
 
@@ -45,13 +40,10 @@ public class ExerciseCreationFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("#dbh", "onOptionsItemSelected: asdfasdfasdfasdf" + item.getItemId());
         switch (item.getItemId()){
             case R.id.action_create_exercise:
-                Log.i("#dbh", "hrherhehrher");
-                exerciseCreationViewModel.getName().setValue(name.getText().toString());
-                exerciseCreationViewModel.getDescription().setValue(description.getText().toString());
-                exerciseCreationViewModel.createExercise();
+                exerciseCollectionCreationViewModel.getName().setValue(name.getText().toString());
+                exerciseCollectionCreationViewModel.createExerciseCollection();
                 ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(root.getWindowToken(), 0);
                 Navigation.findNavController(root).popBackStack();
                 return true;

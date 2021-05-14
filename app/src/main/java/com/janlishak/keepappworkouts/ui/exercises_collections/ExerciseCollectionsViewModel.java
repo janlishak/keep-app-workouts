@@ -4,16 +4,39 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ExerciseCollectionsViewModel extends ViewModel {
+import com.janlishak.keepappworkouts.model.ExerciseCollection;
+import com.janlishak.keepappworkouts.persistence.IExerciseCollectionRepository;
+import com.janlishak.keepappworkouts.persistence.MemoryExerciseCollectionRepository;
 
-    private MutableLiveData<String> mText;
+import java.util.List;
+
+public class ExerciseCollectionsViewModel extends ViewModel {
+    private MutableLiveData<Boolean> deleteMode;
+    private IExerciseCollectionRepository exerciseCollectionRepository;
 
     public ExerciseCollectionsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        exerciseCollectionRepository = MemoryExerciseCollectionRepository.getInstance();
+        deleteMode = new MutableLiveData<>();
+        deleteMode.setValue(false);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<Boolean> getDeleteMode() {
+        return deleteMode;
+    }
+
+    public LiveData<List<ExerciseCollection>> getExerciseCollections() {
+        return exerciseCollectionRepository.ExerciseCollection();
+    }
+
+    public void remove(ExerciseCollection exerciseCollection){
+        exerciseCollectionRepository.removeExerciseCollection(exerciseCollection);
+    }
+
+    public void add(ExerciseCollection exerciseCollection){
+        exerciseCollectionRepository.createExerciseCollection(exerciseCollection);
+    }
+
+    public void toggleDeleteMode() {
+        deleteMode.setValue(!deleteMode.getValue());
     }
 }

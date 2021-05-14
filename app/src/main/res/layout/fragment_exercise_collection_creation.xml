@@ -6,13 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.main_activity.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_exercise_collections"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <EditText
+            android:id="@+id/exercise_collection_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="new collection"
+            android:padding="16dp"
+            android:textSize="32sp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
