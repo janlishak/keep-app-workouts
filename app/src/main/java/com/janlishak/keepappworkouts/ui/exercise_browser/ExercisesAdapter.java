@@ -4,11 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
@@ -17,12 +14,17 @@ import com.janlishak.keepappworkouts.model.Exercise;
 import java.util.List;
 
 public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder> {
-    LiveData<List<Exercise>> exercises;
+    List<Exercise> exercises;
+    View.OnClickListener listener;
 
-    public ExercisesAdapter(LiveData<List<Exercise>> exercises){
+    public void setData(List<Exercise> exercises){
         this.exercises = exercises;
+        this.notifyDataSetChanged();
     }
 
+    public void setListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -34,12 +36,12 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.exerciseName.setText(exercises.getValue().get(position).getName());
+        holder.exerciseName.setText(exercises.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return exercises.getValue().size();
+        return exercises.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -48,14 +50,11 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             exerciseName = itemView.findViewById(R.id.textview_exercise_name);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // TODO: 5/10/2021 https://developer.android.com/guide/navigation/navigation-pass-data
-                    Navigation.findNavController(v).navigate(R.id.navigation_exercise_details);
-                }
-            });
+            itemView.setOnClickListener(listener);
         }
+    }
+
+    public Exercise getExercise(int position){
+        return exercises.get(position);
     }
 }

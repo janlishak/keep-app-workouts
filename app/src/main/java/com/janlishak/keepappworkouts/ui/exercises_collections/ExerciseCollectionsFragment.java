@@ -19,8 +19,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
-import com.janlishak.keepappworkouts.activities.NotificationsActivity;
-import com.janlishak.keepappworkouts.activities.SettingsActivity;
+
 
 import java.util.ArrayList;
 import java.util.List;

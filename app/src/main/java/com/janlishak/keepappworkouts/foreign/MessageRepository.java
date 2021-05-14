@@ -8,18 +8,18 @@ public class MessageRepository {
     private DatabaseReference myRef;
     private MessageLiveData message;
 
-    private MessageRepository(){}
-
     public static synchronized MessageRepository getInstance() {
         if(instance == null)
             instance = new MessageRepository();
         return instance;
     }
 
-    public void init(String userId) {
+    private MessageRepository(){
+        String userId = UserRepository.getInstance().getCurrentUser().getValue().getUid();
         myRef = FirebaseDatabase.getInstance().getReference().child("users").child(userId);
         message = new MessageLiveData(myRef);
     }
+
 
     public void saveMessage(String message) {
         myRef.setValue(new Message(message));

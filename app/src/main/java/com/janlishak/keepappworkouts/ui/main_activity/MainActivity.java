@@ -1,6 +1,5 @@
 package com.janlishak.keepappworkouts.ui.main_activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -8,7 +7,6 @@ import android.view.View;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.janlishak.keepappworkouts.R;
-import com.janlishak.keepappworkouts.authentication_activity.AuthenticationActivity;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +27,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         setContentView(R.layout.activity_main);

@@ -4,8 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+
 
 import com.google.firebase.auth.FirebaseUser;
 import com.janlishak.keepappworkouts.foreign.Message;
@@ -19,10 +18,8 @@ public class ProfileViewModel extends AndroidViewModel {
 
     public ProfileViewModel(Application app){
         super(app);
-        userRepository = UserRepository.getInstance(app);
+        userRepository = UserRepository.getInstance();
         messageRepository = MessageRepository.getInstance();
-        String userId = userRepository.getCurrentUser().getValue().getUid();
-        messageRepository.init(userId);
     }
 
     public LiveData<FirebaseUser> getCurrentUser(){

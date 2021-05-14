@@ -1,40 +1,32 @@
 package com.janlishak.keepappworkouts.model;
 
-public class Exercise {
-    int id;
+import java.io.Serializable;
+
+public class Exercise implements Serializable {
     String name;
-    int difficulty;
     String description;
 
-    public Exercise( String name) {
-        this.name = name;
+    public Exercise() {
     }
 
-    public int getId() {
-        return id;
+    public Exercise(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(int difficulty) {
-        this.difficulty = difficulty;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

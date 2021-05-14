@@ -17,11 +17,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.firebase.ui.auth.AuthUI;
 import com.janlishak.keepappworkouts.R;
-import com.janlishak.keepappworkouts.activities.SettingsActivity;
 import com.janlishak.keepappworkouts.activities.NotificationsActivity;
 import com.janlishak.keepappworkouts.authentication_activity.AuthenticationActivity;
+import com.janlishak.keepappworkouts.ui.main_activity.MainActivity;
 
-import org.w3c.dom.Text;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener{
     private View root;
@@ -66,7 +65,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         Intent intent;
         switch (item.getItemId()) {
             case R.id.action_profile_settings:
-                intent = new Intent(getActivity(), SettingsActivity.class);
+                intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 return true;
 

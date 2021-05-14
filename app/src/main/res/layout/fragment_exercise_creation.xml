@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/detail_exercise_name_edit_text"
+            android:id="@+id/exercise_name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Normal Push-Up"
@@ -22,7 +22,7 @@
             android:textSize="32sp" />
 
         <EditText
-            android:id="@+id/detail_exercise_description_edit_text"
+            android:id="@+id/exercise_description_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Praesent molestie nunc vel ex ullamcorper, nec pellentesque sem condimentum. Curabitur convallis risus nec justo ornare, condimentum finibus leo dignissim. Vestibulum mattis nunc eu dolor euismod dapibus. Donec eu posuere tortor, id interdum mi."

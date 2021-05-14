@@ -13,7 +13,7 @@ public class AuthenticationViewModel extends AndroidViewModel {
 
     public AuthenticationViewModel(Application app){
         super(app);
-        userRepository = UserRepository.getInstance(app);
+        userRepository = UserRepository.getInstance();
     }
 
     public LiveData<FirebaseUser> getCurrentUser(){

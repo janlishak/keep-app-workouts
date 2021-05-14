@@ -4,22 +4,19 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseUser;
 
 public class UserRepository {
     private final UserLiveData currentUser;
-    private final Application app;
     private static UserRepository instance;
 
-    private UserRepository(Application app) {
-        this.app = app;
+    private UserRepository() {
         currentUser = new UserLiveData();
     }
 
-    public static synchronized UserRepository getInstance(Application app) {
+    public static synchronized UserRepository getInstance() {
         if(instance == null)
-            instance = new UserRepository(app);
+            instance = new UserRepository();
         return instance;
     }
 
