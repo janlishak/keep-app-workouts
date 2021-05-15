@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.ui.exercise_collection_creation;
+package com.janlishak.keepappworkouts.ui.plan_creation;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,17 +18,20 @@ import androidx.navigation.Navigation;
 
 import com.janlishak.keepappworkouts.R;
 
-public class ExerciseCollectionCreationFragment extends Fragment {
+public class PlanCreationFragment extends Fragment {
     private View root;
-    private ExerciseCollectionCreationViewModel exerciseCollectionCreationViewModel;
+    private PlanCreationViewModel planCreationViewModel;
     private EditText name;
+    private EditText description;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        exerciseCollectionCreationViewModel = new ViewModelProvider(this).get(ExerciseCollectionCreationViewModel.class);
-        root = inflater.inflate(R.layout.fragment_exercise_collection_creation, container, false);
+        planCreationViewModel = new ViewModelProvider(this).get(PlanCreationViewModel.class);
+        root = inflater.inflate(R.layout.fragment_plan_creation, container, false);
         setHasOptionsMenu(true);
 
-        name = root.findViewById(R.id.exercise_collection_name_edit_text);
+        name = root.findViewById(R.id.plan_creation_name);
+        description = root.findViewById(R.id.plan_creation_description);
+
         return root;
     }
 
@@ -42,8 +45,9 @@ public class ExerciseCollectionCreationFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_create:
-                exerciseCollectionCreationViewModel.getName().setValue(name.getText().toString());
-                exerciseCollectionCreationViewModel.createExerciseCollection();
+                planCreationViewModel.getName().setValue(name.getText().toString());
+                planCreationViewModel.getDescription().setValue(description.getText().toString());
+                planCreationViewModel.createPlan();
                 ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(root.getWindowToken(), 0);
                 Navigation.findNavController(root).popBackStack();
                 return true;

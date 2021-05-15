@@ -59,4 +59,22 @@
         android:label="Create Collection"
         tools:layout="@layout/fragment_exercise_collection_creation" />
 
+    <fragment
+        android:id="@+id/navigation_plan_creation"
+        android:name="com.janlishak.keepappworkouts.ui.plan_creation.PlanCreationFragment"
+        android:label="Create Plan"
+        tools:layout="@layout/fragment_plan_creation" />
+
+    <fragment
+        android:id="@+id/navigation_session_creation"
+        android:name="com.janlishak.keepappworkouts.ui.session_creation.SessionCreationFragment"
+        android:label="Create Session"
+        tools:layout="@layout/fragment_session_creation" />
+
+    <fragment
+        android:id="@+id/navigation_session_exercise_browser"
+        android:name="com.janlishak.keepappworkouts.ui.session_exercise_browser.SessionExercisesBrowserFragment"
+        android:label="Exercise Session"
+        tools:layout="@layout/fragment_session_exercise_browser" />
+
 </navigation>

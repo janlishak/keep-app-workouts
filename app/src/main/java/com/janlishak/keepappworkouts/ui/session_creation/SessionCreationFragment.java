@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.ui.exercise_collection_creation;
+package com.janlishak.keepappworkouts.ui.session_creation;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,17 +18,17 @@ import androidx.navigation.Navigation;
 
 import com.janlishak.keepappworkouts.R;
 
-public class ExerciseCollectionCreationFragment extends Fragment {
+public class SessionCreationFragment extends Fragment {
     private View root;
-    private ExerciseCollectionCreationViewModel exerciseCollectionCreationViewModel;
+    private SessionCreationViewModel sessionCreationViewModel;
     private EditText name;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        exerciseCollectionCreationViewModel = new ViewModelProvider(this).get(ExerciseCollectionCreationViewModel.class);
-        root = inflater.inflate(R.layout.fragment_exercise_collection_creation, container, false);
+        sessionCreationViewModel = new ViewModelProvider(this).get(SessionCreationViewModel.class);
+        root = inflater.inflate(R.layout.fragment_session_creation, container, false);
         setHasOptionsMenu(true);
 
-        name = root.findViewById(R.id.exercise_collection_name_edit_text);
+        name = root.findViewById(R.id.session_name_edit_text);
         return root;
     }
 
@@ -42,8 +42,8 @@ public class ExerciseCollectionCreationFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_create:
-                exerciseCollectionCreationViewModel.getName().setValue(name.getText().toString());
-                exerciseCollectionCreationViewModel.createExerciseCollection();
+                sessionCreationViewModel.getName().setValue(name.getText().toString());
+                sessionCreationViewModel.createSession();
                 ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(root.getWindowToken(), 0);
                 Navigation.findNavController(root).popBackStack();
                 return true;

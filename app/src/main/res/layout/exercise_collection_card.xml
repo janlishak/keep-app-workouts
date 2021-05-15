@@ -17,14 +17,14 @@
         android:layout_height="211dp">
 
         <TextView
-            android:background="?colorPrimary"
+            android:textAlignment="center"
+            android:background="@color/white"
             android:id="@+id/collection_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:padding="16dp"
+            android:padding="8dp"
             android:text="Awesome Exercise Plan"
-            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

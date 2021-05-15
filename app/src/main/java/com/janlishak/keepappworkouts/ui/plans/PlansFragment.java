@@ -77,7 +77,7 @@ public class PlansFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                Navigation.findNavController(root).navigate(R.id.navigation_exercise_collection_creation);
+                Navigation.findNavController(root).navigate(R.id.navigation_plan_creation);
                 return true;
             case R.id.action_delete:
                 viewModel.toggleDeleteMode();

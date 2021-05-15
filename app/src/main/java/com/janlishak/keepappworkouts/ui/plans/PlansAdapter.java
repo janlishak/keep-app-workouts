@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.model.Plan;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class PlansAdapter extends RecyclerView.Adapter<PlansAdapter.ViewHolder> {
@@ -41,6 +43,7 @@ public class PlansAdapter extends RecyclerView.Adapter<PlansAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.planName.setText(list.get(position).getName());
+        holder.description.setText(list.get(position).getDescription());
     }
 
     @Override
@@ -50,10 +53,12 @@ public class PlansAdapter extends RecyclerView.Adapter<PlansAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView planName;
+        TextView description;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             planName = itemView.findViewById(R.id.plan_card_name_text_view);
+            description = itemView.findViewById(R.id.plan_card_description_text_view);
             itemView.setOnClickListener(listener);
         }
     }

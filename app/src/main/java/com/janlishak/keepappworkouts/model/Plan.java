@@ -1,12 +1,19 @@
 package com.janlishak.keepappworkouts.model;
 
-public class Plan {
+import java.io.Serializable;
+
+public class Plan implements Serializable {
     String name;
     String description;
 
     public Plan(){};
 
-    public Plan(String name, String title, String description) {
+    public Plan(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public Plan(String name, String description, String text) {
         this.name = name;
         this.description = description;
     }

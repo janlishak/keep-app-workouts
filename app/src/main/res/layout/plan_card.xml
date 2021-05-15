@@ -49,6 +49,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:layout_margin="8dp"
             android:id="@+id/plan_card_description_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

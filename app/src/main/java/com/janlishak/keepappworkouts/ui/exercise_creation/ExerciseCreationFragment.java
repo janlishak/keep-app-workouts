@@ -2,8 +2,6 @@ package com.janlishak.keepappworkouts.ui.exercise_creation;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -39,16 +37,14 @@ public class ExerciseCreationFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.exercise_creation_toolbar, menu);
+        inflater.inflate(R.menu.creation_toolbar, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("#dbh", "onOptionsItemSelected: asdfasdfasdfasdf" + item.getItemId());
         switch (item.getItemId()){
-            case R.id.action_create_exercise:
-                Log.i("#dbh", "hrherhehrher");
+            case R.id.action_create:
                 exerciseCreationViewModel.getName().setValue(name.getText().toString());
                 exerciseCreationViewModel.getDescription().setValue(description.getText().toString());
                 exerciseCreationViewModel.createExercise();
