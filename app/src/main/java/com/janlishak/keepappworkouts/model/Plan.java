@@ -1,39 +1,29 @@
 package com.janlishak.keepappworkouts.model;
 
 public class Plan {
-    private String course_name;
-    private int course_rating;
-    private int course_image;
+    String name;
+    String description;
 
-    // Constructor
-    public Plan(String course_name, int course_rating, int course_image) {
-        this.course_name = course_name;
-        this.course_rating = course_rating;
-        this.course_image = course_image;
+    public Plan(){};
+
+    public Plan(String name, String title, String description) {
+        this.name = name;
+        this.description = description;
     }
 
-    // Getter and Setter
-    public String getCourse_name() {
-        return course_name;
+    public String getName() {
+        return name;
     }
 
-    public void setCourse_name(String course_name) {
-        this.course_name = course_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getCourse_rating() {
-        return course_rating;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCourse_rating(int course_rating) {
-        this.course_rating = course_rating;
-    }
-
-    public int getCourse_image() {
-        return course_image;
-    }
-
-    public void setCourse_image(int course_image) {
-        this.course_image = course_image;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

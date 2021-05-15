@@ -4,16 +4,39 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class PlansViewModel extends ViewModel {
+import com.janlishak.keepappworkouts.model.Plan;
+import com.janlishak.keepappworkouts.persistence.IPlanRepository;
+import com.janlishak.keepappworkouts.persistence.MemoryPlanRepository;
 
-    private MutableLiveData<String> mText;
+import java.util.List;
+
+public class PlansViewModel extends ViewModel {
+    private MutableLiveData<Boolean> deleteMode;
+    private IPlanRepository planRepository;
 
     public PlansViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        planRepository = MemoryPlanRepository.getInstance();
+        deleteMode = new MutableLiveData<>();
+        deleteMode.setValue(false);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<Boolean> getDeleteMode() {
+        return deleteMode;
+    }
+
+    public LiveData<List<Plan>> getPlans() {
+        return planRepository.getPlans();
+    }
+
+    public void remove(Plan plan){
+        planRepository.removePlan(plan);
+    }
+
+    public void add(Plan plan){
+        planRepository.removePlan(plan);
+    }
+
+    public void toggleDeleteMode() {
+        deleteMode.setValue(!deleteMode.getValue());
     }
 }

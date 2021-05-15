@@ -39,13 +39,7 @@ public class ExercisesBrowserFragment extends Fragment {
         RecyclerView exerciseRecycleView = root.findViewById(R.id.exercise_browser_rw);
         ExercisesAdapter exercisesAdapter = new ExercisesAdapter();
         exercisesAdapter.setListener(createRecycleViewOnClickListener(exerciseRecycleView, exercisesAdapter));
-        viewModel.getExercises().observe(getViewLifecycleOwner(), new Observer<List<Exercise>>() {
-            @Override
-            public void onChanged(List<Exercise> exercises) {
-                exercisesAdapter.setData(exercises);
-                Log.i("TAG", "onChanged: datachangedL " + exercises);
-            }
-        });
+        viewModel.getExercises().observe(getViewLifecycleOwner(), exercises -> exercisesAdapter.setData(exercises));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         exerciseRecycleView.setLayoutManager(linearLayoutManager);
         exerciseRecycleView.setAdapter(exercisesAdapter);
@@ -54,12 +48,11 @@ public class ExercisesBrowserFragment extends Fragment {
     }
 
     private View.OnClickListener createRecycleViewOnClickListener(RecyclerView exerciseRecycleView, ExercisesAdapter exercisesAdapter){
-        return view -> {
+        return view ->
+        {
             Exercise exercise = exercisesAdapter.getExercise(exerciseRecycleView.getChildLayoutPosition(view));
-            if (viewModel.getDeleteMode().getValue()) {
-                viewModel.deleteExercise(exercise);
-            } else {
-
+            if (viewModel.getDeleteMode().getValue()) viewModel.deleteExercise(exercise);
+            else {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("exercise", exercise);
                 Navigation.findNavController(root).navigate(R.id.navigation_exercise_details, bundle);

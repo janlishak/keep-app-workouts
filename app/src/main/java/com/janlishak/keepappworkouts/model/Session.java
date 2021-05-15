@@ -1,16 +1,12 @@
 package com.janlishak.keepappworkouts.model;
 
 public class Session {
-    int id;
     String name;
 
-    public Session(String name) {
-        this.id = -1;
-        this.name = name;
-    }
+    public Session(){};
 
-    public int getId() {
-        return id;
+    public Session(String name) {
+        this.name = name;
     }
 
     public String getName() {
