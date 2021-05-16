@@ -9,18 +9,19 @@ import androidx.lifecycle.MutableLiveData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.janlishak.keepappworkouts.foreign.UserRepository;
 import com.janlishak.keepappworkouts.model.Plan;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FireStorePlanRepository implements IPlanRepository{
+public class FirebasePlanRepository implements IPlanRepository{
 
-    private static FireStorePlanRepository INSTANCE;
+    private static FirebasePlanRepository INSTANCE;
 
     private MutableLiveData<List<Plan>> liveDataList;
     private MutableLiveData<Plan> currentPlan;
@@ -28,18 +29,20 @@ public class FireStorePlanRepository implements IPlanRepository{
     private CollectionReference collectionReference;
     private CollectionReference currentPlanCollectionReference;
 
-    public static synchronized FireStorePlanRepository getInstance() {
+    public static synchronized FirebasePlanRepository getInstance() {
         if(INSTANCE == null)
-            INSTANCE = new FireStorePlanRepository();
+            INSTANCE = new FirebasePlanRepository();
         return INSTANCE;
     }
 
-    private FireStorePlanRepository(){
+    private FirebasePlanRepository(){
         liveDataList = new MutableLiveData<>();
+        liveDataList.setValue(new ArrayList<>());
         currentPlan = new MutableLiveData<>();
 
-        collectionReference = FirebaseFirestore.getInstance().collection("plans");
-        currentPlanCollectionReference = FirebaseFirestore.getInstance().collection("current-plan");
+        DocumentReference userDocumentReference = UserRepository.getInstance().getUserDocument();
+        collectionReference = userDocumentReference.collection("plan");
+        currentPlanCollectionReference = userDocumentReference.collection("current-plan");
 
     }
 

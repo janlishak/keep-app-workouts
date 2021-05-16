@@ -42,8 +42,7 @@ public class SessionCreationFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_create:
-                sessionCreationViewModel.getName().setValue(name.getText().toString());
-                sessionCreationViewModel.createSession();
+                sessionCreationViewModel.createSession(name.getText().toString());
                 ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(root.getWindowToken(), 0);
                 Navigation.findNavController(root).popBackStack();
                 return true;

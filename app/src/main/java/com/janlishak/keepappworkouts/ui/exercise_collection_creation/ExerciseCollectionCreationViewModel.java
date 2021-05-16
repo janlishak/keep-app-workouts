@@ -1,23 +1,18 @@
 package com.janlishak.keepappworkouts.ui.exercise_collection_creation;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.model.ExerciseCollection;
-import com.janlishak.keepappworkouts.persistence.IExerciseRepository;
-import com.janlishak.keepappworkouts.persistence.MemoryExerciseCollectionRepository;
-import com.janlishak.keepappworkouts.persistence.MemoryExerciseRepository;
+import com.janlishak.keepappworkouts.persistence.FirebaseExerciseCollectionRepository;
 
 public class ExerciseCollectionCreationViewModel extends ViewModel {
 
     private MutableLiveData<String> name;
-    private MemoryExerciseCollectionRepository exerciseCollectionRepository;
+    private FirebaseExerciseCollectionRepository exerciseCollectionRepository;
 
     public ExerciseCollectionCreationViewModel() {
-        exerciseCollectionRepository = MemoryExerciseCollectionRepository.getInstance();
+        exerciseCollectionRepository = FirebaseExerciseCollectionRepository.getInstance();
 
         name = new MutableLiveData<>();
     }

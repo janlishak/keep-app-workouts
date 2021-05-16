@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.persistence.IExerciseRepository;
-import com.janlishak.keepappworkouts.persistence.MemoryExerciseRepository;
+import com.janlishak.keepappworkouts.persistence.FirebaseExerciseRepository;
 
 public class SessionExerciseCreationViewModel extends ViewModel {
 
@@ -17,7 +17,7 @@ public class SessionExerciseCreationViewModel extends ViewModel {
     private IExerciseRepository exerciseRepository;
 
     public SessionExerciseCreationViewModel() {
-        exerciseRepository = MemoryExerciseRepository.getInstance();
+        exerciseRepository = FirebaseExerciseRepository.getInstance();
 
         name = new MutableLiveData<>();
         description = new MutableLiveData<>();

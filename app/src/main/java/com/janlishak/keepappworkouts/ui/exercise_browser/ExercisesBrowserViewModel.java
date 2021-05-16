@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.model.ExerciseCollection;
 import com.janlishak.keepappworkouts.persistence.IExerciseRepository;
-import com.janlishak.keepappworkouts.persistence.MemoryExerciseRepository;
+import com.janlishak.keepappworkouts.persistence.FirebaseExerciseRepository;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class ExercisesBrowserViewModel extends ViewModel {
     private MutableLiveData<Boolean> deleteMode;
 
     public ExercisesBrowserViewModel() {
-        exerciseRepository = MemoryExerciseRepository.getInstance();
+        exerciseRepository = FirebaseExerciseRepository.getInstance();
 
         deleteMode = new MutableLiveData<Boolean>();
         deleteMode.setValue(false);

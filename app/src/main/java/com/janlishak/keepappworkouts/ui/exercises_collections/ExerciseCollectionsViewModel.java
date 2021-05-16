@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.ExerciseCollection;
 import com.janlishak.keepappworkouts.persistence.IExerciseCollectionRepository;
-import com.janlishak.keepappworkouts.persistence.MemoryExerciseCollectionRepository;
+import com.janlishak.keepappworkouts.persistence.FirebaseExerciseCollectionRepository;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class ExerciseCollectionsViewModel extends ViewModel {
     private IExerciseCollectionRepository exerciseCollectionRepository;
 
     public ExerciseCollectionsViewModel() {
-        exerciseCollectionRepository = MemoryExerciseCollectionRepository.getInstance();
+        exerciseCollectionRepository = FirebaseExerciseCollectionRepository.getInstance();
         deleteMode = new MutableLiveData<>();
         deleteMode.setValue(false);
     }

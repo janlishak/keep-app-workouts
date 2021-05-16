@@ -1,10 +1,10 @@
 package com.janlishak.keepappworkouts.foreign;
 
-import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UserRepository {
     private final UserLiveData currentUser;
@@ -22,5 +22,10 @@ public class UserRepository {
 
     public LiveData<FirebaseUser> getCurrentUser() {
         return currentUser;
+    }
+
+    public DocumentReference getUserDocument(){
+        String userId = UserRepository.getInstance().getCurrentUser().getValue().getUid();
+        return FirebaseFirestore.getInstance().collection("user").document(userId);
     }
 }

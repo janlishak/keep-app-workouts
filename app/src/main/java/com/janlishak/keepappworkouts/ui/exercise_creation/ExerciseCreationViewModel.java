@@ -5,11 +5,9 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.firebase.database.FirebaseDatabase;
-import com.janlishak.keepappworkouts.foreign.MessageRepository;
 import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.persistence.IExerciseRepository;
-import com.janlishak.keepappworkouts.persistence.MemoryExerciseRepository;
+import com.janlishak.keepappworkouts.persistence.FirebaseExerciseRepository;
 
 public class ExerciseCreationViewModel extends ViewModel {
 
@@ -19,7 +17,7 @@ public class ExerciseCreationViewModel extends ViewModel {
     private IExerciseRepository exerciseRepository;
 
     public ExerciseCreationViewModel() {
-        exerciseRepository = MemoryExerciseRepository.getInstance();
+        exerciseRepository = FirebaseExerciseRepository.getInstance();
 
         name = new MutableLiveData<>();
         description = new MutableLiveData<>();

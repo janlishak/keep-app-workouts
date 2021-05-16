@@ -1,14 +1,15 @@
-package com.janlishak.keepappworkouts.persistence;
+package com.janlishak.keepappworkouts.persistence.old;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.janlishak.keepappworkouts.model.ExerciseCollection;
+import com.janlishak.keepappworkouts.persistence.IExerciseCollectionRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemoryExerciseCollectionRepository implements IExerciseCollectionRepository{
+public class MemoryExerciseCollectionRepository implements IExerciseCollectionRepository {
     private List<ExerciseCollection> list;
     private MutableLiveData<List<ExerciseCollection>> liveDataList;
     private static MemoryExerciseCollectionRepository INSTANCE;

@@ -13,12 +13,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
+import com.janlishak.keepappworkouts.model.Plan;
 import com.janlishak.keepappworkouts.model.Session;
 
 
@@ -38,26 +40,31 @@ public class WorkoutsFragment extends Fragment {
         //Binds Toolbar color
         viewModel.getDeleteMode().observe(getViewLifecycleOwner(), deleteMode -> getActivity().findViewById(R.id.toolbar).setBackground(deleteMode? new ColorDrawable(0xFFFF6666):new ColorDrawable(0xFF006666)));
 
-        //RecycleView
-        recyclerView = root.findViewById(R.id.SessionsRecyclerView);
-        sessionsAdapter = new SessionsAdapter();
-        sessionsAdapter.setListener(createRecycleViewOnClickListener());
+        viewModel.getActivePlan().observe(getViewLifecycleOwner(), new Observer<Plan>() {
+            @Override
+            public void onChanged(Plan plan) {
+                if (plan != null) {
+                    //active plan card
+                    CardView activeCard = root.findViewById(R.id.active_plan_card);
+                    TextView activeCardName = activeCard.findViewById(R.id.plan_card_name_text_view);
+                    TextView activeCardDescription = activeCard.findViewById(R.id.plan_card_description_text_view);
+                    activeCardName.setText(plan.getName());
+                    activeCardDescription.setText(plan.getDescription());
 
-        viewModel.getSessions().observe(getViewLifecycleOwner(), Session -> sessionsAdapter.setData(Session));
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(sessionsAdapter);
+                    //RecycleView
+                    recyclerView = root.findViewById(R.id.SessionsRecyclerView);
+                    sessionsAdapter = new SessionsAdapter();
+                    sessionsAdapter.setListener(WorkoutsFragment.this.createRecycleViewOnClickListener());
 
-        //active plan card
-        CardView activeCard = root.findViewById(R.id.active_plan_card);
-        TextView activeCardName = activeCard.findViewById(R.id.plan_card_name_text_view);
-        TextView activeCardDescription = activeCard.findViewById(R.id.plan_card_description_text_view);
+                    viewModel.setPlan(plan);
+                    viewModel.getSessions().observe(WorkoutsFragment.this.getViewLifecycleOwner(), Session -> sessionsAdapter.setData(Session));
 
-        viewModel.getActivePlan().observe(getViewLifecycleOwner(), plan -> {
-            if(plan != null){
-            activeCardName.setText(plan.getName());
-            activeCardDescription.setText(plan.getDescription());}
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WorkoutsFragment.this.getContext(), LinearLayoutManager.VERTICAL, false);
+                    recyclerView.setLayoutManager(linearLayoutManager);
+                    recyclerView.setAdapter(sessionsAdapter);
+                }
+            }
         });
 
         return root;

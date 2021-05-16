@@ -1,14 +1,15 @@
-package com.janlishak.keepappworkouts.persistence;
+package com.janlishak.keepappworkouts.persistence.old;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.janlishak.keepappworkouts.model.Plan;
+import com.janlishak.keepappworkouts.persistence.IPlanRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemoryPlanRepository implements IPlanRepository{
+public class MemoryPlanRepository implements IPlanRepository {
     private List<Plan> list;
     private MutableLiveData<List<Plan>> liveDataList;
     private static MemoryPlanRepository INSTANCE;
