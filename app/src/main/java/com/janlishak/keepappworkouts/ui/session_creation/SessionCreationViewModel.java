@@ -1,9 +1,8 @@
 package com.janlishak.keepappworkouts.ui.session_creation;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.model.Workout;
 import com.janlishak.keepappworkouts.persistence.ISessionRepository;
 import com.janlishak.keepappworkouts.persistence.FirebaseSessionRepository;
 
@@ -16,7 +15,7 @@ public class SessionCreationViewModel extends ViewModel {
     }
 
     public void createSession(String name) {
-        Session session = new Session();
-        sessionRepository.addSession(session);
+        Workout workout = new Workout(name);
+        sessionRepository.addSession(workout);
     }
 }

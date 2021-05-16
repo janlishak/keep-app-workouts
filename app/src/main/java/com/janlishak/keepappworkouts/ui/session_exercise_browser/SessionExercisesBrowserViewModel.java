@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.model.Workout;
 import com.janlishak.keepappworkouts.model.SessionExercise;
 import com.janlishak.keepappworkouts.persistence.ISessionExerciseRepository;
-import com.janlishak.keepappworkouts.persistence.MemorySessionExerciseRepository;
+import com.janlishak.keepappworkouts.persistence.FirebaseSessionExerciseRepository;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class SessionExercisesBrowserViewModel extends ViewModel {
     private MutableLiveData<Boolean> deleteMode;
 
     public SessionExercisesBrowserViewModel() {
-        sessionExerciseRepository = MemorySessionExerciseRepository.getInstance();
+        sessionExerciseRepository = FirebaseSessionExerciseRepository.getInstance();
 
         selectedExercise = new MutableLiveData<>();
         isLooking = new MutableLiveData<>();
@@ -32,7 +32,7 @@ public class SessionExercisesBrowserViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<SessionExercise>> getSessionExercises() {
-        return sessionExerciseRepository.getSessionExercises();
+        return sessionExerciseRepository.getWorkoutExercises();
     }
 
     public void setPlan(Plan plan){
@@ -74,7 +74,7 @@ public class SessionExercisesBrowserViewModel extends ViewModel {
         return selectedExercise;
     }
 
-    public void setSession(Session session) {
-        sessionExerciseRepository.setSession(session);
+    public void setSession(Workout workout) {
+        sessionExerciseRepository.setSession(workout);
     }
 }

@@ -42,11 +42,12 @@ public class FirebasePlanRepository implements IPlanRepository{
 
         DocumentReference userDocumentReference = UserRepository.getInstance().getUserDocument();
         collectionReference = userDocumentReference.collection("plan");
-        currentPlanCollectionReference = userDocumentReference.collection("current-plan");
+        currentPlanCollectionReference = userDocumentReference.collection("current");
 
     }
 
     private void refresh(){
+        liveDataList.setValue(new ArrayList<>());
         //refresh all plans
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -65,7 +66,7 @@ public class FirebasePlanRepository implements IPlanRepository{
         });
 
         //refresh current plan
-        Task<DocumentSnapshot> snapshotTask = currentPlanCollectionReference.document("active").get().addOnCompleteListener(task -> {
+        Task<DocumentSnapshot> snapshotTask = currentPlanCollectionReference.document("plan").get().addOnCompleteListener(task -> {
             if(task.isComplete()){
                 Plan plan = task.getResult().toObject(Plan.class);
                 currentPlan.setValue(plan);
@@ -82,7 +83,7 @@ public class FirebasePlanRepository implements IPlanRepository{
 
     @Override
     public void setCurrentPlan(Plan selectedPlan) {
-        currentPlanCollectionReference.document("active").set(selectedPlan);
+        currentPlanCollectionReference.document("plan").set(selectedPlan);
         currentPlan.setValue(selectedPlan);
     }
 

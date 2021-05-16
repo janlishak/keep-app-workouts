@@ -35,6 +35,7 @@ public class FirebaseExerciseRepository implements IExerciseRepository{
     }
 
     private void refresh(){
+        exercises.setValue(new ArrayList<>());
         //refresh all collections
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

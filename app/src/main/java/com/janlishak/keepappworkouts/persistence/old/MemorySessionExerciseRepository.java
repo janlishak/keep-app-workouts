@@ -1,19 +1,18 @@
-package com.janlishak.keepappworkouts.persistence;
+package com.janlishak.keepappworkouts.persistence.old;
 
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.janlishak.keepappworkouts.Exceptions.NotImplementedException;
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.model.Session;
 import com.janlishak.keepappworkouts.model.SessionExercise;
+import com.janlishak.keepappworkouts.model.Workout;
+import com.janlishak.keepappworkouts.persistence.ISessionExerciseRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemorySessionExerciseRepository implements ISessionExerciseRepository{
+public class MemorySessionExerciseRepository implements ISessionExerciseRepository {
     private static MemorySessionExerciseRepository INSTANCE;
     private MutableLiveData<List<SessionExercise>> SessionExercises;
     private List<SessionExercise> SessionExercisesList;
@@ -50,8 +49,8 @@ public class MemorySessionExerciseRepository implements ISessionExerciseReposito
     }
 
     @Override
-    public void setSession(Session session) {
-        Log.i("db-dbg", session.toString());
+    public void setSession(Workout workout) {
+        Log.i("db-dbg", workout.toString());
     }
 
     @Override
@@ -67,7 +66,7 @@ public class MemorySessionExerciseRepository implements ISessionExerciseReposito
     }
 
     @Override
-    public MutableLiveData<List<SessionExercise>> getSessionExercises() {
+    public MutableLiveData<List<SessionExercise>> getWorkoutExercises() {
         return  SessionExercises;
     }
 

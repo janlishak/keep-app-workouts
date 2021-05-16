@@ -16,7 +16,7 @@
             android:id="@+id/session_name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="session name"
+            android:hint="workout name"
             android:padding="16dp"
             android:textSize="32sp" />
     </LinearLayout>

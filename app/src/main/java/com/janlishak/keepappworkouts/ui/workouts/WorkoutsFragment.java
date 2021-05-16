@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.model.Workout;
 
 
 public class WorkoutsFragment extends Fragment {
@@ -72,12 +72,12 @@ public class WorkoutsFragment extends Fragment {
 
     private View.OnClickListener createRecycleViewOnClickListener(){
         return view -> {
-            Session session = sessionsAdapter.getSession(recyclerView.getChildLayoutPosition(view));
+            Workout workout = sessionsAdapter.getSession(recyclerView.getChildLayoutPosition(view));
             if (viewModel.getDeleteMode().getValue()) {
-                viewModel.remove(session);
+                viewModel.remove(workout);
             } else {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("session", session);
+                bundle.putSerializable("workout", workout);
                 bundle.putSerializable("plan", viewModel.getActivePlan().getValue());
                 Navigation.findNavController(root).navigate(R.id.navigation_session_exercise_browser, bundle);
             }

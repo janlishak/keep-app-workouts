@@ -9,16 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
-import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.model.Workout;
 
 import java.util.List;
 
 public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHolder> {
-    List<Session> list;
+    List<Workout> list;
     View.OnClickListener listener;
 
-    public void setData(List<Session> sessionList) {
-        list = sessionList;
+    public void setData(List<Workout> workoutList) {
+        list = workoutList;
         notifyDataSetChanged();
     }
 
@@ -26,7 +26,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         this.listener = listener;
     }
 
-    public Session getSession(int position) {
+    public Workout getSession(int position) {
         return list.get(position);
     }
 

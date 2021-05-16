@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.model.Workout;
 import com.janlishak.keepappworkouts.persistence.FirebasePlanRepository;
 import com.janlishak.keepappworkouts.persistence.IPlanRepository;
 import com.janlishak.keepappworkouts.persistence.ISessionRepository;
@@ -38,16 +38,16 @@ public class WorkoutsViewModel extends ViewModel {
         sessionRepository.setPlan(plan);
     }
 
-    public LiveData<List<Session>> getSessions() {
+    public LiveData<List<Workout>> getSessions() {
         return sessionRepository.getSessions();
     }
 
-    public void remove(Session Session){
-        sessionRepository.removeSession(Session);
+    public void remove(Workout Workout){
+        sessionRepository.removeSession(Workout);
     }
 
-    public void add(Session Session){
-        sessionRepository.removeSession(Session);
+    public void add(Workout Workout){
+        sessionRepository.removeSession(Workout);
     }
 
     public void toggleDeleteMode() {

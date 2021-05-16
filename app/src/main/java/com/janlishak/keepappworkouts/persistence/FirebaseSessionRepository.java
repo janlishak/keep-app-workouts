@@ -13,7 +13,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.janlishak.keepappworkouts.foreign.UserRepository;
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.model.Workout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
 
 public class FirebaseSessionRepository implements ISessionRepository{
     private static FirebaseSessionRepository INSTANCE;
-    private MutableLiveData<List<Session>> sessions;
+    private MutableLiveData<List<Workout>> workouts;
     private CollectionReference collectionReference;
 
     public static synchronized ISessionRepository getInstance() {
@@ -31,24 +31,25 @@ public class FirebaseSessionRepository implements ISessionRepository{
     }
 
     private FirebaseSessionRepository() {
-        sessions = new MutableLiveData<>();
-        sessions.setValue(new ArrayList<>());
+        workouts = new MutableLiveData<>();
+        workouts.setValue(new ArrayList<>());
     }
 
     private void refresh(){
+        workouts.setValue(new ArrayList<>());
         //refresh all collections
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
-                    List<Session> list = new ArrayList<>();
+                    List<Workout> list = new ArrayList<>();
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Session session= document.toObject(Session.class);
-                        session.setId(document.getId());
-                        list.add(session);
+                        Workout workout = document.toObject(Workout.class);
+                        workout.setId(document.getId());
+                        list.add(workout);
                     }
                     Log.d("db-dbg", list.toString());
-                    sessions.setValue(list);
+                    workouts.setValue(list);
                 } else Log.d("db-dbg", "Error getting documents: ", task.getException());
             }
         });
@@ -56,33 +57,24 @@ public class FirebaseSessionRepository implements ISessionRepository{
 
     @Override
     public void setPlan(Plan plan) {
-        collectionReference = UserRepository.getInstance().getUserDocument().collection("plan").document(plan.getId()).collection("exercises");
+        collectionReference = UserRepository.getInstance().getUserDocument().collection("plan").document(plan.getId()).collection("session");
     }
 
     @Override
-    public void addSession(Session Session) {
-        System.out.println("adding" + sessions.toString());
-        System.out.println("adding" + sessions.toString());
-        System.out.println("adding" + sessions.toString());
-        System.out.println("adding" + sessions.toString());
-        System.out.println("adding" + sessions.toString());
-        System.out.println("adding" + sessions.toString());
-        System.out.println("adding" + sessions.toString());
-        System.out.println("adding" + sessions.toString());
-
-        collectionReference.add(sessions);
+    public void addSession(Workout workout) {
+        collectionReference.add(workout);
         refresh();
     }
 
     @Override
-    public void removeSession(Session session) {
-        collectionReference.document(session.getId()).delete();
+    public void removeSession(Workout workout) {
+        collectionReference.document(workout.getId()).delete();
         refresh();
     }
 
     @Override
-    public LiveData<List<Session>> getSessions() {
+    public LiveData<List<Workout>> getSessions() {
         refresh();
-        return sessions;
+        return workouts;
     }
 }

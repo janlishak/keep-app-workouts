@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.janlishak.keepappworkouts.Exceptions.NotImplementedException;
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.model.Workout;
 import com.janlishak.keepappworkouts.model.SessionExercise;
 
 public class SessionExercisesBrowserFragment extends Fragment {
@@ -29,11 +29,11 @@ public class SessionExercisesBrowserFragment extends Fragment {
     private SessionExercisesAdapter sessionExercisesAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Session session = (Session)getArguments().getSerializable("session");
+        Workout workout = (Workout)getArguments().getSerializable("workout");
         Plan plan = (Plan)getArguments().getSerializable("plan");
         viewModel = new ViewModelProvider(getActivity()).get(SessionExercisesBrowserViewModel.class);
         viewModel.setPlan(plan);
-        viewModel.setSession(session);
+        viewModel.setSession(workout);
         root = inflater.inflate(R.layout.fragment_session_exercise_browser, container, false);
         setHasOptionsMenu(true);
 
