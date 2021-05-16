@@ -63,9 +63,9 @@ public class ExerciseCollectionsFragment extends Fragment {
             if (viewModel.getDeleteMode().getValue()) {
                 viewModel.remove(exerciseCollection);
             } else {
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("exercise", exercise);
-                Navigation.findNavController(root).navigate(R.id.navigation_exercise_browser);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("ec", exerciseCollection);
+                Navigation.findNavController(root).navigate(R.id.navigation_exercise_browser, bundle);
             }
         };
     }

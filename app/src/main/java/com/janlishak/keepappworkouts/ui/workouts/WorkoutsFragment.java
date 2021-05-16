@@ -64,13 +64,14 @@ public class WorkoutsFragment extends Fragment {
 
     private View.OnClickListener createRecycleViewOnClickListener(){
         return view -> {
-            Session Session = sessionsAdapter.getSession(recyclerView.getChildLayoutPosition(view));
+            Session session = sessionsAdapter.getSession(recyclerView.getChildLayoutPosition(view));
             if (viewModel.getDeleteMode().getValue()) {
-                viewModel.remove(Session);
+                viewModel.remove(session);
             } else {
                 Bundle bundle = new Bundle();
+                bundle.putSerializable("session", session);
                 bundle.putSerializable("plan", viewModel.getActivePlan().getValue());
-                Navigation.findNavController(root).navigate(R.id.navigation_session_exercise_browser);
+                Navigation.findNavController(root).navigate(R.id.navigation_session_exercise_browser, bundle);
             }
         };
     }

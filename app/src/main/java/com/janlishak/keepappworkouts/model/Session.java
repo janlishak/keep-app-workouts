@@ -1,6 +1,8 @@
 package com.janlishak.keepappworkouts.model;
 
-public class Session {
+import java.io.Serializable;
+
+public class Session implements Serializable {
     String name;
 
     public Session(){};
@@ -15,5 +17,12 @@ public class Session {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Session{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

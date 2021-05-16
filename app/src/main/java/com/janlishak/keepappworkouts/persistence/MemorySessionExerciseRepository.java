@@ -1,10 +1,13 @@
 package com.janlishak.keepappworkouts.persistence;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.janlishak.keepappworkouts.Exceptions.NotImplementedException;
 import com.janlishak.keepappworkouts.model.Plan;
+import com.janlishak.keepappworkouts.model.Session;
 import com.janlishak.keepappworkouts.model.SessionExercise;
 
 import java.util.ArrayList;
@@ -43,7 +46,12 @@ public class MemorySessionExerciseRepository implements ISessionExerciseReposito
 
     @Override
     public void setPlan(Plan plan) {
-        throw new NotImplementedException();
+        Log.i("db-dbg", plan.toString());
+    }
+
+    @Override
+    public void setSession(Session session) {
+        Log.i("db-dbg", session.toString());
     }
 
     @Override

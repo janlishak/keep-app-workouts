@@ -62,4 +62,16 @@ public class SessionExercise extends Exercise{
     public void setRest(String rest) {
         this.rest = rest;
     }
+
+    @Override
+    public String toString() {
+        return "SessionExercise{" +
+                "sets=" + sets +
+                ", reps=" + reps +
+                ", rest='" + rest + '\'' +
+                ", completed=" + completed +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

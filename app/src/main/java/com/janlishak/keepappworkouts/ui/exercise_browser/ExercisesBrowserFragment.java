@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.model.Exercise;
+import com.janlishak.keepappworkouts.model.ExerciseCollection;
 import com.janlishak.keepappworkouts.model.SessionExercise;
 import com.janlishak.keepappworkouts.ui.session_exercise_browser.SessionExercisesBrowserViewModel;
 
@@ -31,6 +32,8 @@ public class ExercisesBrowserFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesBrowserViewModel.class);
+        ExerciseCollection exerciseCollection = (ExerciseCollection) getArguments().getSerializable("ec");
+        viewModel.setExerciseCollection(exerciseCollection);
         sharedViewModel = new ViewModelProvider(getActivity()).get(SessionExercisesBrowserViewModel.class);
         root = inflater.inflate(R.layout.fragment_exercise_browser, container, false);
         setHasOptionsMenu(true);

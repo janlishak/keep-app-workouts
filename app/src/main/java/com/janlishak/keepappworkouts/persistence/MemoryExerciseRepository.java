@@ -1,5 +1,7 @@
 package com.janlishak.keepappworkouts.persistence;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -44,7 +46,7 @@ public class MemoryExerciseRepository implements IExerciseRepository{
 
     @Override
     public void setCollection(ExerciseCollection exerciseCollection) {
-        throw new NotImplementedException();
+        Log.i("db-dbg", exerciseCollection.toString());
     }
 
     @Override

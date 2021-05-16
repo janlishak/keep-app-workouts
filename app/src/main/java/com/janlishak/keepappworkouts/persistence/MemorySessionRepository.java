@@ -1,5 +1,7 @@
 package com.janlishak.keepappworkouts.persistence;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -43,7 +45,7 @@ public class MemorySessionRepository implements ISessionRepository{
 
     @Override
     public void setPlan(Plan plan) {
-        throw new NotImplementedException();
+        Log.i("db-dbg", plan.toString());
     }
 
     @Override

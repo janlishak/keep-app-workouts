@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.model.Plan;
+import com.janlishak.keepappworkouts.model.Session;
 import com.janlishak.keepappworkouts.model.SessionExercise;
 import com.janlishak.keepappworkouts.persistence.ISessionExerciseRepository;
 import com.janlishak.keepappworkouts.persistence.MemorySessionExerciseRepository;
@@ -71,5 +72,9 @@ public class SessionExercisesBrowserViewModel extends ViewModel {
 
     public LiveData<Exercise> getSelected() {
         return selectedExercise;
+    }
+
+    public void setSession(Session session) {
+        sessionExerciseRepository.setSession(session);
     }
 }

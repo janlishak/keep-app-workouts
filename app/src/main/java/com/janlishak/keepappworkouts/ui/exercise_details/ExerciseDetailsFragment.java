@@ -24,6 +24,7 @@ public class ExerciseDetailsFragment extends Fragment {
 
         TextView name = root.findViewById(R.id.detail_exercise_name);
         TextView description = root.findViewById(R.id.detail_exercise_description);
+
         Exercise exercise = (Exercise) getArguments().getSerializable("exercise");
         name.setText(exercise.getName());
         description.setText(exercise.getDescription());
