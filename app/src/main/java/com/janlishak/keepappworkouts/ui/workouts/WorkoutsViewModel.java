@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Plan;
 import com.janlishak.keepappworkouts.model.Session;
+import com.janlishak.keepappworkouts.persistence.FireStorePlanRepository;
 import com.janlishak.keepappworkouts.persistence.IPlanRepository;
 import com.janlishak.keepappworkouts.persistence.ISessionRepository;
 import com.janlishak.keepappworkouts.persistence.MemoryPlanRepository;
@@ -20,7 +21,7 @@ public class WorkoutsViewModel extends ViewModel {
 
     public WorkoutsViewModel() {
         sessionRepository = MemorySessionRepository.getInstance();
-        planRepository = MemoryPlanRepository.getInstance();
+        planRepository = FireStorePlanRepository.getInstance();
 
         deleteMode = new MutableLiveData<>();
         deleteMode.setValue(false);

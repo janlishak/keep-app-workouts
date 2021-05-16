@@ -55,8 +55,9 @@ public class WorkoutsFragment extends Fragment {
         TextView activeCardDescription = activeCard.findViewById(R.id.plan_card_description_text_view);
 
         viewModel.getActivePlan().observe(getViewLifecycleOwner(), plan -> {
+            if(plan != null){
             activeCardName.setText(plan.getName());
-            activeCardDescription.setText(plan.getDescription());
+            activeCardDescription.setText(plan.getDescription());}
         });
 
         return root;

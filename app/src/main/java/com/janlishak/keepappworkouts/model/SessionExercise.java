@@ -1,6 +1,7 @@
 package com.janlishak.keepappworkouts.model;
 
 public class SessionExercise extends Exercise{
+    private String id;
     private Integer sets;
     private Integer reps;
     private String rest;
@@ -15,6 +16,16 @@ public class SessionExercise extends Exercise{
     }
 
     public SessionExercise(){}
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public SessionExercise(String name, String description, Integer sets, Integer reps, String rest) {
         super(name, description);

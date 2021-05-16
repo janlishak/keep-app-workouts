@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.ExerciseCollection;
 import com.janlishak.keepappworkouts.model.Plan;
+import com.janlishak.keepappworkouts.persistence.FireStorePlanRepository;
 import com.janlishak.keepappworkouts.persistence.IPlanRepository;
 import com.janlishak.keepappworkouts.persistence.MemoryPlanRepository;
 
@@ -16,7 +17,7 @@ public class PlanCreationViewModel extends ViewModel {
     private IPlanRepository planRepository;
 
     public PlanCreationViewModel() {
-        planRepository = MemoryPlanRepository.getInstance();
+        planRepository = FireStorePlanRepository.getInstance();
         name = new MutableLiveData<>();
         description = new MutableLiveData<>();
     }

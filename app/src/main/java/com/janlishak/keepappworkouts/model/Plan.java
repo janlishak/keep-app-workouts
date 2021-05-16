@@ -3,10 +3,19 @@ package com.janlishak.keepappworkouts.model;
 import java.io.Serializable;
 
 public class Plan implements Serializable {
+    String id;
     String name;
     String description;
 
     public Plan(){};
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Plan(String name, String description) {
         this.name = name;
