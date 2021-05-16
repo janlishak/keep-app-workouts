@@ -29,6 +29,7 @@ public class ExerciseCollectionCreationFragment extends Fragment {
         setHasOptionsMenu(true);
 
         name = root.findViewById(R.id.exercise_collection_name_edit_text);
+
         return root;
     }
 

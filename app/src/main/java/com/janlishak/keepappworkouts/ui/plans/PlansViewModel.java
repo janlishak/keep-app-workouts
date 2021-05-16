@@ -36,6 +36,10 @@ public class PlansViewModel extends ViewModel {
         planRepository.removePlan(plan);
     }
 
+    public void setActivePlan(Plan plan){
+        planRepository.setCurrentPlan(plan);
+    }
+
     public void toggleDeleteMode() {
         deleteMode.setValue(!deleteMode.getValue());
     }

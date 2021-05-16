@@ -60,9 +60,8 @@ public class PlansFragment extends Fragment {
             if (viewModel.getDeleteMode().getValue()) {
                 viewModel.remove(plan);
             } else {
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("exercise", exercise);
-                Navigation.findNavController(root).navigate(R.id.navigation_exercise_browser);
+                viewModel.setActivePlan(plan);
+                Navigation.findNavController(root).navigate(R.id.navigation_dashboard);
             }
         };
     }

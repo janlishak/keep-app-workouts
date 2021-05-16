@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_workouts" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_exercise_library"
         android:name="com.janlishak.keepappworkouts.ui.exercises_collections.ExerciseCollectionsFragment"
         android:label="@string/title_exercises"
         tools:layout="@layout/fragment_exercise_collections" />
@@ -76,5 +76,11 @@
         android:name="com.janlishak.keepappworkouts.ui.session_exercise_browser.SessionExercisesBrowserFragment"
         android:label="Exercise Session"
         tools:layout="@layout/fragment_session_exercise_browser" />
+
+    <fragment
+        android:id="@+id/navigation_session_exercise_creation"
+        android:name="com.janlishak.keepappworkouts.ui.session_exercise_creation.SessionExerciseCreationFragment"
+        android:label="Create Session Exercise"
+        tools:layout="@layout/fragment_session_exercise_creation" />
 
 </navigation>

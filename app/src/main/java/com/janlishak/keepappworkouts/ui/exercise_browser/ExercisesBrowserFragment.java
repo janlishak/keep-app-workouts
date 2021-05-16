@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
+
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,15 +20,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.model.Exercise;
+import com.janlishak.keepappworkouts.model.SessionExercise;
+import com.janlishak.keepappworkouts.ui.session_exercise_browser.SessionExercisesBrowserViewModel;
 
-import java.util.List;
 
 public class ExercisesBrowserFragment extends Fragment {
     private View root;
     private ExercisesBrowserViewModel viewModel;
+    private SessionExercisesBrowserViewModel sharedViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(ExercisesBrowserViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(ExercisesBrowserViewModel.class);
+        sharedViewModel = new ViewModelProvider(getActivity()).get(SessionExercisesBrowserViewModel.class);
         root = inflater.inflate(R.layout.fragment_exercise_browser, container, false);
         setHasOptionsMenu(true);
 
@@ -52,6 +55,11 @@ public class ExercisesBrowserFragment extends Fragment {
         {
             Exercise exercise = exercisesAdapter.getExercise(exerciseRecycleView.getChildLayoutPosition(view));
             if (viewModel.getDeleteMode().getValue()) viewModel.deleteExercise(exercise);
+            else if(sharedViewModel.getIsLooking().getValue()){
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("exercise", exercise);
+                Navigation.findNavController(root).navigate(R.id.navigation_session_exercise_creation, bundle);
+            }
             else {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("exercise", exercise);

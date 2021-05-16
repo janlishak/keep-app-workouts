@@ -19,6 +19,7 @@ import java.util.List;
 public class SessionExercisesAdapter extends RecyclerView.Adapter<SessionExercisesAdapter.ViewHolder> {
     List<SessionExercise> SessionExercises;
     View.OnClickListener listener;
+    View.OnClickListener doneListener;
 
     public void setData(List<SessionExercise> SessionExercises){
         this.SessionExercises = SessionExercises;
@@ -28,6 +29,11 @@ public class SessionExercisesAdapter extends RecyclerView.Adapter<SessionExercis
     public void setListener(View.OnClickListener listener){
         this.listener = listener;
     }
+    public void setDoneListener(View.OnClickListener listener){
+        this.doneListener = listener;
+    }
+
+
 
     @NonNull
     @Override
@@ -68,6 +74,7 @@ public class SessionExercisesAdapter extends RecyclerView.Adapter<SessionExercis
             sets = itemView.findViewById(R.id.textview_session_exercise_sets);
             reps = itemView.findViewById(R.id.textview_session_exercise_reps);
             rest = itemView.findViewById(R.id.textview_session_exercise_rest);
+            done.setOnClickListener(doneListener);
             itemView.setOnClickListener(listener);
         }
     }

@@ -7,6 +7,7 @@ import android.view.View;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.janlishak.keepappworkouts.R;
+import com.janlishak.keepappworkouts.model.Plan;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity{
 
     private void setupNavigation(){
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_profile).build();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_exercise_library, R.id.navigation_profile).build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.navigation_exercise_details:
                 case R.id.navigation_exercise_creation:
                 case R.id.navigation_session_details:
+                case R.id.navigation_session_exercise_browser:
                     toolbar.setVisibility(View.VISIBLE);
                     navView.setVisibility(View.GONE);
                     break;
@@ -61,5 +63,10 @@ public class MainActivity extends AppCompatActivity{
                     navView.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    public void setNavBarVisibility(boolean value){
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView.setVisibility(value? View.VISIBLE: View.GONE);
     }
 }
