@@ -39,4 +39,6 @@ moscow prioritized requirements, requirements in *italics* are non-functional
 ⬛️ using sensor to determine activity  
 ⬛️ tracking activities such as cycling and running with GPS  
 
+<img src="http://g.recordit.co/9WPfzKcmOS.gif" width="100"
+
 *KeepAPP Workouts is a part of university course examination and therefore does not allow third party contributions.*
