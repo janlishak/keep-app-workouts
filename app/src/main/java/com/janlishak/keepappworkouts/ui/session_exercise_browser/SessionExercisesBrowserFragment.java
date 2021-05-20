@@ -2,6 +2,7 @@ package com.janlishak.keepappworkouts.ui.session_exercise_browser;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,10 +58,7 @@ public class SessionExercisesBrowserFragment extends Fragment {
     private View.OnClickListener createDoneListener(){
         return view ->
         {
-            throw new NotImplementedException();
-//            SessionExercise exercise = sessionExercisesAdapter.getSessionExercise(exerciseRecycleView.getChildLayoutPosition(view));
-//            exercise.setCompleted(!exercise.isCompleted());
-//            sessionExercisesAdapter.notifyDataSetChanged();
+            viewModel.completeExercise(exerciseRecycleView.getChildLayoutPosition(view));
         };
     }
 

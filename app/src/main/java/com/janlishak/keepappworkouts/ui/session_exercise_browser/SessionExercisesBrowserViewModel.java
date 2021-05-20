@@ -1,5 +1,7 @@
 package com.janlishak.keepappworkouts.ui.session_exercise_browser;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -76,5 +78,15 @@ public class SessionExercisesBrowserViewModel extends ViewModel {
 
     public void setSession(Workout workout) {
         sessionExerciseRepository.setSession(workout);
+    }
+
+    public void completeExercise(int childLayoutPosition) {
+        Log.i("here", "completeExercise: askjdfnkjasdnljkf ");
+//        List<SessionExercise> exercises = getSessionExercises().getValue();
+//        SessionExercise completedExercise = exercises.get(childLayoutPosition);
+//        sessionExerciseRepository.removeSessionExercise(completedExercise);
+//        completedExercise.setCompleted(true);
+//        sessionExerciseRepository.addSessionExercise(completedExercise);
+
     }
 }
