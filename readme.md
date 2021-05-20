@@ -19,14 +19,14 @@ moscow prioritized requirements, requirements in *italics* are non-functional
 ✅ order similar types of exercises into exercise collections  
 ✅ create and manage plans containing sessions  
 ✅ mange session exercises in the session  
-✅ use fragments and mvvm architecture*  
+✅ *use fragments and mvvm architecture*  
 
 ### Should have
 ✅ add video or image for an exercise  
-🟨 show exercises in the session in way the user can check the completed  
 ✅ show details about the user profile  
-✅ store data remotely*  
-✅ support for multiple users*  
+🟨 show exercises in the session in way the user can check the completed  
+✅ *store data remotely*  
+✅ *support for multiple users*  
 
 ### Could have
 🟧 reminding the user to exercise by sending notifications  
