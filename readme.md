@@ -37,10 +37,9 @@ moscow prioritized requirements, requirements in *italics* are non-functional
 ### Won't have
 ⬛️ using sensor to determine activity  
 ⬛️ tracking activities such as cycling and running with GPS  
-  
-  
-  
-  
+&nbsp;
+&nbsp;
+&nbsp;
 ## Preview
 
 ![Recordit GIF](http://g.recordit.co/9WPfzKcmOS.gif)
