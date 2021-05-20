@@ -14,29 +14,29 @@ For easier reading and full understanding of  the the documentation, it is cruci
 ## Requirements
 moscow prioritized requirements, requirements in *italics* are non-functional
 #### Must have
-✅ add own exercises with relevant information
-✅ mange exercises and store them in exercise library
-✅ order similar types of exercises into exercise collections
-✅ create and manage plans containing sessions
-✅ mange session exercises in the session
-✅ use fragments and mvvm architecture*
+✅ add own exercises with relevant information  
+✅ mange exercises and store them in exercise library  
+✅ order similar types of exercises into exercise collections  
+✅ create and manage plans containing sessions  
+✅ mange session exercises in the session  
+✅ use fragments and mvvm architecture*  
 
 ### Should have
-✅ add video or image for an exercise
-🟨 show exercises in the session in way the user can check the completed
-✅ show details about the user profile
-✅ store data remotely*
-✅ support for multiple users*
+✅ add video or image for an exercise  
+🟨 show exercises in the session in way the user can check the completed  
+✅ show details about the user profile  
+✅ store data remotely*  
+✅ support for multiple users*  
 
 ### Could have
-🟧 reminding the user to exercise by sending notifications
-🟧 keeping track of completed exercises
-🟧 sharing workout plans with friends
-🟧 show graphs and statistics
-🟧 tracking persons weight and other relevant information
+🟧 reminding the user to exercise by sending notifications  
+🟧 keeping track of completed exercises  
+🟧 sharing workout plans with friends  
+🟧 show graphs and statistics  
+🟧 tracking persons weight and other relevant information  
 
 ### Won't have
-⬛️ using sensor to determine activity
-⬛️ tracking activities such as cycling and running with GPS
+⬛️ using sensor to determine activity  
+⬛️ tracking activities such as cycling and running with GPS  
 
 *KeepAPP Workouts is a part of university course examination and therefore does not allow third party contributions.*
