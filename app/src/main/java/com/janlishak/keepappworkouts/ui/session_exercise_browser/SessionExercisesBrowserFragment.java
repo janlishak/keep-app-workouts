@@ -17,7 +17,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.janlishak.keepappworkouts.Exceptions.NotImplementedException;
 import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.model.Plan;
 import com.janlishak.keepappworkouts.model.Workout;

@@ -13,7 +13,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.janlishak.keepappworkouts.foreign.UserRepository;
+import com.janlishak.keepappworkouts.services.login.UserRepository;
 import com.janlishak.keepappworkouts.model.Plan;
 
 import java.util.ArrayList;

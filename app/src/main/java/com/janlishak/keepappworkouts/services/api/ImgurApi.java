@@ -12,15 +12,10 @@ import retrofit2.http.Path;
 public interface ImgurApi {
     @Headers("Authorization: Client-ID 4fd513e770aa0a0")
     @GET("3/image/{id}")
-    Call<ImgurImageResponse> getPokemon(@Path("id") String id);
+    Call<ImgurImageResponse> getImage(@Path("id") String id);
 
     @Headers("Authorization: Client-ID 4fd513e770aa0a0")
     @Multipart
     @POST("3/image")
-    Call<ImgurImageResponse> uploadFile(@Part MultipartBody.Part image);
-
-    @Headers("Authorization: Client-ID 4fd513e770aa0a0")
-    @Multipart
-    @POST("3/image")
-    Call<ImgurImageResponse> uploadFile2(@Part MultipartBody.Part image);
+    Call<ImgurImageResponse> uploadImageFile(@Part MultipartBody.Part image);
 }

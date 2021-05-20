@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AuthenticationActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int RC_SIGN_IN = 420;
+    private static final int RC_SIGN_IN = 421;
     private AuthenticationViewModel viewModel;
 
     private Button debugSkipButton;

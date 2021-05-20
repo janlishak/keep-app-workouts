@@ -14,6 +14,8 @@ import com.janlishak.keepappworkouts.R;
 import com.janlishak.keepappworkouts.ui.main_activity.MainActivity;
 
 public class NotificationsActivity extends AppCompatActivity {
+    //This activity is not implemented
+    //Check the implementation status for more information
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,7 @@ public class NotificationsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-       FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

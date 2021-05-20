@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.google.firebase.auth.FirebaseUser;
-import com.janlishak.keepappworkouts.foreign.UserRepository;
+import com.janlishak.keepappworkouts.services.login.UserRepository;
 
 public class AuthenticationViewModel extends AndroidViewModel {
     private final UserRepository userRepository;

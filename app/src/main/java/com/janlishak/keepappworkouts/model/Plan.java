@@ -45,9 +45,6 @@ public class Plan implements Serializable {
 
     @Override
     public String toString() {
-        return "Plan{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return "Plan{" + "name='" + name + '\'' + ", description='" + description + '\'' + '}';
     }
 }

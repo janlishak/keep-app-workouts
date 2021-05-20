@@ -81,7 +81,9 @@ public class SessionExercisesBrowserViewModel extends ViewModel {
     }
 
     public void completeExercise(int childLayoutPosition) {
-        Log.i("here", "completeExercise: askjdfnkjasdnljkf ");
+//        This method is not fully functional yey
+//        It has been disabled because it causes crashes sometimes
+//
 //        List<SessionExercise> exercises = getSessionExercises().getValue();
 //        SessionExercise completedExercise = exercises.get(childLayoutPosition);
 //        sessionExerciseRepository.removeSessionExercise(completedExercise);

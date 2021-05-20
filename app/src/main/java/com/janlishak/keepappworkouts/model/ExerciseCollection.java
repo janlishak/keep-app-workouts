@@ -30,8 +30,6 @@ public class ExerciseCollection implements Serializable {
 
     @Override
     public String toString() {
-        return "ExerciseCollection{" +
-                "name='" + name + '\'' +
-                '}';
+        return "ExerciseCollection{" + "name='" + name + '\'' + '}';
     }
 }

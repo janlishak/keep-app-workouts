@@ -7,30 +7,18 @@ import androidx.lifecycle.LiveData;
 
 
 import com.google.firebase.auth.FirebaseUser;
-import com.janlishak.keepappworkouts.foreign.Message;
-import com.janlishak.keepappworkouts.foreign.MessageRepository;
-import com.janlishak.keepappworkouts.foreign.UserRepository;
+import com.janlishak.keepappworkouts.services.login.UserRepository;
 
 public class ProfileViewModel extends AndroidViewModel {
 
     private final UserRepository userRepository;
-    private final MessageRepository messageRepository;
 
     public ProfileViewModel(Application app){
         super(app);
         userRepository = UserRepository.getInstance();
-        messageRepository = MessageRepository.getInstance();
     }
 
     public LiveData<FirebaseUser> getCurrentUser(){
         return userRepository.getCurrentUser();
-    }
-
-    public void saveMessage(String message) {
-        messageRepository.saveMessage(message);
-    }
-
-    public LiveData<Message> getMessage() {
-        return messageRepository.getMessage();
     }
 }

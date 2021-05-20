@@ -11,7 +11,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.janlishak.keepappworkouts.foreign.UserRepository;
+import com.janlishak.keepappworkouts.services.login.UserRepository;
 import com.janlishak.keepappworkouts.model.Plan;
 import com.janlishak.keepappworkouts.model.Workout;
 

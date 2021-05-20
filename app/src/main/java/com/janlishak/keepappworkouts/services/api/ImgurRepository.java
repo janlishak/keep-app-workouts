@@ -32,7 +32,7 @@ public class ImgurRepository {
         linkLiveData.setValue(new Link());
 
         ImgurApi imgurApi = ServiceGenerator.getImgurApi();
-        Call<ImgurImageResponse> call = imgurApi.getPokemon(imgurId);
+        Call<ImgurImageResponse> call = imgurApi.getImage(imgurId);
         call.enqueue(new Callback<ImgurImageResponse>() {
             @Override
             public void onResponse(Call<ImgurImageResponse> call, Response<ImgurImageResponse> response) {
@@ -64,7 +64,7 @@ public class ImgurRepository {
         MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
 
         Log.i("Retrofit", "insdie2" );
-        Call<ImgurImageResponse> call = imgurApi.uploadFile2(body);
+        Call<ImgurImageResponse> call = imgurApi.uploadImageFile(body);
 
 
         Log.i("Retrofit", "insdie77" );

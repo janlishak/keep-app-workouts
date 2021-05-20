@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.foreign;
+package com.janlishak.keepappworkouts.services.login;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
