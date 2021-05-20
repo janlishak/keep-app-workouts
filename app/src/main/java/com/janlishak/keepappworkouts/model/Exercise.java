@@ -6,9 +6,18 @@ public class Exercise implements Serializable {
     String id;
     String name;
     String description;
+    String imageLink;
+    String imageDeleteHash;
 
-    public Exercise() {
-    }
+    public Exercise() { }
+
+    public String getImageDeleteHash() { return imageDeleteHash; }
+
+    public void setImageDeleteHash(String imageDeleteHash) { this.imageDeleteHash = imageDeleteHash; }
+
+    public String getImageLink() { return imageLink; }
+
+    public void setImageLink(String imageLink) { this.imageLink = imageLink; }
 
     public String getId() {
         return id;
@@ -41,9 +50,6 @@ public class Exercise implements Serializable {
 
     @Override
     public String toString() {
-        return "Exercise{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return "Exercise{" + "name='" + name + '\'' + ", description='" + description + '\'' + '}';
     }
 }

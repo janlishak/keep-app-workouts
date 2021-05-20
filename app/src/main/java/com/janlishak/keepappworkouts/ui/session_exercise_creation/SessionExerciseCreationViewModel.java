@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Exercise;
-import com.janlishak.keepappworkouts.persistence.IExerciseRepository;
-import com.janlishak.keepappworkouts.persistence.FirebaseExerciseRepository;
+import com.janlishak.keepappworkouts.services.persistance.IExerciseRepository;
+import com.janlishak.keepappworkouts.services.persistance.FirebaseExerciseRepository;
 
 public class SessionExerciseCreationViewModel extends ViewModel {
 

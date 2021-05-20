@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.persistence.FirebasePlanRepository;
-import com.janlishak.keepappworkouts.persistence.IPlanRepository;
+import com.janlishak.keepappworkouts.services.persistance.FirebasePlanRepository;
+import com.janlishak.keepappworkouts.services.persistance.IPlanRepository;
 
 import java.util.List;
 

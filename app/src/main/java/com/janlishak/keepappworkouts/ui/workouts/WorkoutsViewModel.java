@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.Plan;
 import com.janlishak.keepappworkouts.model.Workout;
-import com.janlishak.keepappworkouts.persistence.FirebasePlanRepository;
-import com.janlishak.keepappworkouts.persistence.IPlanRepository;
-import com.janlishak.keepappworkouts.persistence.ISessionRepository;
-import com.janlishak.keepappworkouts.persistence.FirebaseSessionRepository;
+import com.janlishak.keepappworkouts.services.persistance.FirebasePlanRepository;
+import com.janlishak.keepappworkouts.services.persistance.IPlanRepository;
+import com.janlishak.keepappworkouts.services.persistance.ISessionRepository;
+import com.janlishak.keepappworkouts.services.persistance.FirebaseSessionRepository;
 
 import java.util.List;
 

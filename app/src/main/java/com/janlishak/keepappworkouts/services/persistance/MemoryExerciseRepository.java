@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.persistence.old;
+package com.janlishak.keepappworkouts.services.persistance;
 
 import android.util.Log;
 
@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.model.ExerciseCollection;
-import com.janlishak.keepappworkouts.persistence.IExerciseRepository;
 
 import java.util.ArrayList;
 import java.util.List;

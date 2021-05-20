@@ -1,4 +1,4 @@
-package com.janlishak.keepappworkouts.persistence;
+package com.janlishak.keepappworkouts.services.persistance;
 
 import androidx.lifecycle.MutableLiveData;
 

@@ -63,6 +63,8 @@ public class SessionExerciseCreationFragment extends Fragment {
                 String rest = restTW.getText().toString();
 
                 SessionExercise sessionExercise = new SessionExercise(name, description, sets, reps, rest);
+                sessionExercise.setImageLink(exercise.getImageLink());
+                sessionExercise.setImageDeleteHash(exercise.getImageDeleteHash());
                 sharedViewModel.setIsLooking(false);
                 sharedViewModel.addSessionExercise(sessionExercise);
 

@@ -28,5 +28,17 @@
             android:hint="details about the exercise"
             android:paddingLeft="16dp"
             android:paddingRight="16dp" />
+
+        <Button
+            android:id="@+id/add_image_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="add image"/>
+
+        <ProgressBar
+            android:id="@+id/image_upload_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ProgressBar>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

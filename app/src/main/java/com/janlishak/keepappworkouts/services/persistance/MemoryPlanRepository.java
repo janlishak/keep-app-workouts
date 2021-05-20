@@ -1,10 +1,9 @@
-package com.janlishak.keepappworkouts.persistence.old;
+package com.janlishak.keepappworkouts.services.persistance;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.janlishak.keepappworkouts.model.Plan;
-import com.janlishak.keepappworkouts.persistence.IPlanRepository;
 
 import java.util.ArrayList;
 import java.util.List;

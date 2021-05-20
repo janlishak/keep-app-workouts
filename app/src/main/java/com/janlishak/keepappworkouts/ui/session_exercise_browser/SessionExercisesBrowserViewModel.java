@@ -8,8 +8,8 @@ import com.janlishak.keepappworkouts.model.Exercise;
 import com.janlishak.keepappworkouts.model.Plan;
 import com.janlishak.keepappworkouts.model.Workout;
 import com.janlishak.keepappworkouts.model.SessionExercise;
-import com.janlishak.keepappworkouts.persistence.ISessionExerciseRepository;
-import com.janlishak.keepappworkouts.persistence.FirebaseSessionExerciseRepository;
+import com.janlishak.keepappworkouts.services.persistance.ISessionExerciseRepository;
+import com.janlishak.keepappworkouts.services.persistance.FirebaseSessionExerciseRepository;
 
 import java.util.List;
 

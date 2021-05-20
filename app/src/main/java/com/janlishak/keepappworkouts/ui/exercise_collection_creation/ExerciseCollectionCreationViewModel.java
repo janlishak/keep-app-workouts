@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.janlishak.keepappworkouts.model.ExerciseCollection;
-import com.janlishak.keepappworkouts.persistence.FirebaseExerciseCollectionRepository;
+import com.janlishak.keepappworkouts.services.persistance.FirebaseExerciseCollectionRepository;
 
 public class ExerciseCollectionCreationViewModel extends ViewModel {
 
