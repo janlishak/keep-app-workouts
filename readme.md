@@ -4,7 +4,7 @@ Everyone at least once in life, decided to start a healthier lifestyle by going 
 **KeepAPP** is an android app that help users to keep up with their workouts by organizing exercise into workout plans. Workout plans can be created from templates and later personalized so that they fit the user needs. Workout plans can be built up from a predefined list of exercise each containing instructions customized counters or timers specific to the exercise. When the user start exercising the App helps the user count the exercises by showing timers and playing sounds. KeepApp also takes care about planning and reminding the user to exercise. 
 
 ## Video
-[video demonstration](https://youtu.be/kxfAmkFgdNU "youtube")
+[video demonstration link](https://youtu.be/kxfAmkFgdNU)
 
 ## Terminolgy and Domain model
 For easier reading and full understanding of  the the documentation, it is crucial to first set the terminology in the project. Those are the mainly used  terms in the project and their definition in the scope of this project
